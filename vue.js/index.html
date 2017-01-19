@@ -13,24 +13,31 @@
           </li>
         </ul>
       </nav>
-      <table border="1" cellpadding="10">
-        <thead>
-          <tr>
-            <th>Vencimento</th>
-            <th>Nome</th>
-            <th>Valor</th>
-            <th>Paga?</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="o in bills">
-            <td>{{ o.date_due }}</td>
-            <td>{{ o.name }}</td>
-            <td>{{ o.value }}</td>
-            <td>{{ o.done }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div v-if="activedView == 0">
+        <table border="1" cellpadding="10">
+          <thead>
+            <tr>
+              <th>Vencimento</th>
+              <th>Nome</th>
+              <th>Valor</th>
+              <th>Paga?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="o in bills">
+              <td>{{ o.date_due }}</td>
+              <td>{{ o.name }}</td>
+              <td>{{ o.value }}</td>
+              <td>{{ o.done }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div v-if="activedView == 1">
+        <form name="form">
+          Text: <input type="text">
+        </form>
+      </div>
     </div>
      <script type="text/javascript" src="node_modules/vue/dist/vue.js"></script>
     <script type="text/javascript" src="app.js"></script>
